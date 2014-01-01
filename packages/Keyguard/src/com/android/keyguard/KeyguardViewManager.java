@@ -107,9 +107,9 @@ public class KeyguardViewManager {
     private KeyguardUpdateMonitorCallback mBackgroundChanger = new KeyguardUpdateMonitorCallback() {
         @Override
         public void onSetBackground(Bitmap bmp) {
-            mKeyguardHost.setCustomBackground( new BitmapDrawable(mContext.getResources(),
-                        bmp != null ? bmp : mBlurredImage) );
-            updateShowWallpaper(bmp == null && mBlurredImage == null);
+            if (bmp != null) mBlurredImage = null;
+            mIsCoverflow = true;
+            setCustomBackground (bmp);
         }
     };
 
@@ -207,6 +207,12 @@ public class KeyguardViewManager {
         Resources res = mContext.getResources();
         return res.getBoolean(R.bool.config_enableLockScreenTranslucentDecor)
             && res.getBoolean(R.bool.config_enableTranslucentDecor);
+    }
+
+    private void setCustomBackground(Bitmap bmp) {
+        mKeyguardHost.setCustomBackground( new BitmapDrawable(mContext.getResources(),
+                    bmp != null ? bmp : mBlurredImage) );
+        updateShowWallpaper(bmp == null && mBlurredImage == null);
     }
 
     public void setBackgroundBitmap(Bitmap bmp) {
@@ -448,7 +454,7 @@ public class KeyguardViewManager {
             mBlurredImage = rotateBmp(mBlurredImage, mLastRotation - currentRotation);
             mLastRotation = currentRotation;
             mIsCoverflow = false;
-            KeyguardUpdateMonitor.getInstance(mContext).dispatchSetBackground(mBlurredImage);
+            setCustomBackground(mBlurredImage);
         } else {
             mIsCoverflow = true;
         }
