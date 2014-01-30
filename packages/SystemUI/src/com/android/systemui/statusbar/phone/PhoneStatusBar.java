@@ -1550,7 +1550,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     @Override
-    protected void updateNotificationIcons() {
+    public void updateNotificationIcons() {
         if (mNotificationIcons == null) return;
 
         loadNotificationShade();
