@@ -97,9 +97,6 @@ public class KeyguardViewManager {
     private boolean mScreenOn = false;
     private LockPatternUtils mLockPatternUtils;
 
-    private Bitmap mBlurredImage = null;
-    private int mBlurRadius = 12;
-    private boolean mSeeThrough = false;
 
     private KeyguardUpdateMonitorCallback mBackgroundChanger = new KeyguardUpdateMonitorCallback() {
         @Override
