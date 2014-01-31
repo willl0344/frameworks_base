@@ -4626,14 +4626,6 @@ public final class Settings {
         public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
 
         /**
-         * Allows blurring the lockscreen background
-         * @hide
-         */
-
-        public static final String LOCKSCREEN_BLUR_BEHIND = "lockscreen_blur_behind";
-        public static final String LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
-
-        /**
          * Whether the NumKeyPad will change the orders of numbers
          * in a PIN locked lockscreen
          * 0 = off | 1 = always | 2 = only on request
