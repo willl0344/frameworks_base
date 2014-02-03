@@ -4322,6 +4322,10 @@ public class WindowManagerService extends IWindowManager.Stub
             // If we are preparing an app transition, then delay changing
             // the visibility of this token until we execute that transition.
             if (okToDisplay() && mAppTransition.isTransitionSet()) {
+                // Already in requested state, don't do anything more.
+                if (wtoken.hiddenRequested != visible) {
+                    return;
+                }
                 wtoken.hiddenRequested = !visible;
 
                 if (!wtoken.startingDisplayed) {
@@ -10914,6 +10918,12 @@ public class WindowManagerService extends IWindowManager.Stub
     @Override
     public int getCurrentNavigationBarSize() {
         return mPolicy.getCurrentNavigationBarSize();
+    }
+
+    /* @hide */
+    @Override
+    public void toggleGlobalMenu() {
+        mPolicy.toggleGlobalMenu();
     }
 
     /* @hide */
