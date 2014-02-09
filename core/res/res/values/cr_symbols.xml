@@ -2,6 +2,10 @@
 
 <resources>
 
+  <!-- Power menu -->
+  <java-symbol type="string" name="global_action_screen_record" />
+  <java-symbol type="drawable" name="ic_lock_screen_record" />
+
   <!-- Halo -->
   <java-symbol type="style" name="Theme.DeviceDefault.FloatingWindow" />
   <java-symbol type="style" name="Theme.DeviceDefault.FloatingWindowLight" />
