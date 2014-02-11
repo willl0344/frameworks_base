@@ -34,6 +34,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Rect;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -130,6 +131,7 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
         public View findViewForTask(int persistentTaskId);
         public void drawFadedEdges(Canvas c, int left, int right, int top, int bottom);
         public void setOnScrollListener(Runnable listener);
+        public void removeAllViewsInLayout();
     }
 
     private final class OnLongClickDelegate implements View.OnLongClickListener {
