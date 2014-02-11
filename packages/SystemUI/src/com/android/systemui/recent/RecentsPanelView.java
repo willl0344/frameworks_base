@@ -28,6 +28,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.IPackageDataObserver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
