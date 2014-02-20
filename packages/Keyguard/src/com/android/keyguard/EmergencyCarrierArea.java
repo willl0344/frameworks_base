@@ -27,7 +27,6 @@ import com.android.keyguard.R;
 public class EmergencyCarrierArea extends LinearLayout {
 
     private CarrierText mCarrierText;
-    private EmergencyButton mEmergencyButton;
 
     public EmergencyCarrierArea(Context context) {
         super(context);
@@ -41,22 +40,5 @@ public class EmergencyCarrierArea extends LinearLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         mCarrierText = (CarrierText) findViewById(R.id.carrier_text);
-        mEmergencyButton = (EmergencyButton) findViewById(R.id.emergency_call_button);
-
-        // The emergency button overlaps the carrier text, only noticeable when highlighted.
-        // So temporarily hide the carrier text while the emergency button is pressed.
-        mEmergencyButton.setOnTouchListener(new OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        mCarrierText.animate().alpha(0);
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        mCarrierText.animate().alpha(1);
-                        break;
-                }
-                return false;
-            }});
     }
 }
