@@ -26,7 +26,7 @@
     android:gravity="center"
     android:layout_gravity="center_horizontal"
     android:layout_alignParentBottom="true"
-    android:clickable="true">
+    android:clickable="false">
 
     <com.android.keyguard.CarrierText
         android:id="@+id/carrier_text"
@@ -45,20 +45,6 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:weightSum="2">
-
-        <com.android.keyguard.EmergencyButton
-            android:id="@+id/emergency_call_button"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/lockscreen_emergency_button"
-            android:text="@string/kg_emergency_call_label"
-            style="?android:attr/buttonBarButtonStyle"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/kg_status_line_font_size"
-            android:textColor="?android:attr/textColorSecondary"
-            android:drawablePadding="8dip" 
-            android:textAllCaps="@bool/kg_use_all_caps" />
 
         <Button android:id="@+id/forgot_password_button"
             android:layout_width="0dip"
