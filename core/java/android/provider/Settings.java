@@ -3744,18 +3744,6 @@ public final class Settings {
         public static final String LOCKSCREEN_NOTIFICATIONS = "lockscreen_notifications";
 
         /**
-         * Turn screen on when device is pulled out of pocket
-         * @hide
-         */
-        public static final String LOCKSCREEN_NOTIFICATIONS_POCKET_MODE = "lockscreen_notifications_pocket_mode";
-
-        /**
-         * Turn screen on when pulled out of pocket even if no notifications are pending
-         * @hide
-         */
-        public static final String LOCKSCREEN_NOTIFICATIONS_SHOW_ALWAYS = "lockscreen_notifications_show_always";
-
-        /**
          * Hide low priority notifications such as google now weather notifications from lockscreen notifications
          * @hide
          */
