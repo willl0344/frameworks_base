@@ -91,9 +91,9 @@ import com.android.systemui.statusbar.phone.Ticker;
 import com.android.internal.widget.SizeAdaptiveLayout;
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.systemui.R;
-import com.android.systemui.RecentsComponent;
 import com.android.systemui.SearchPanelView;
 import com.android.systemui.SystemUI;
+import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.statusbar.phone.KeyguardTouchDelegate;
 import com.android.systemui.statusbar.halo.Halo;
 import com.android.systemui.statusbar.phone.NavigationBarOverlay;
@@ -223,7 +223,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     private boolean mDeviceProvisioned = false;
 
-    private RecentsComponent mRecents;
+    private RecentController mRecents;
 
     public Ticker getTicker() {
         return mTicker;
@@ -321,7 +321,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         mBarService = IStatusBarService.Stub.asInterface(
                 ServiceManager.getService(Context.STATUS_BAR_SERVICE));
 
-        mRecents = getComponent(RecentsComponent.class);
+        mRecents = new RecentController(mContext);
 
         mLocale = mContext.getResources().getConfiguration().locale;
         mLayoutDirection = TextUtils.getLayoutDirectionFromLocale(mLocale);
@@ -798,6 +798,12 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected void closeRecents() {
         if (mRecents != null) {
             mRecents.closeRecents();
+        }
+    }
+
+    protected void rebuildRecentsScreen() {
+        if (mRecents != null) {
+            mRecents.rebuildRecentsScreen();
         }
     }
 
