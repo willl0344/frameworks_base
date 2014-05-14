@@ -356,10 +356,10 @@ public class BatteryCircleMeterView extends ImageView {
 
         mPaintFont.setTextSize(mCircleSize / 2f);
 
-        float strokeWidth = mCircleSize / 7f;
+        float strokeWidth = mCircleSize / 7.5f;
         mPaintRed.setStrokeWidth(strokeWidth);
         mPaintSystem.setStrokeWidth(strokeWidth);
-        mPaintGray.setStrokeWidth(strokeWidth / 3.5f);
+        mPaintGray.setStrokeWidth(strokeWidth);
         // calculate rectangle for drawArc calls
         int pLeft = getPaddingLeft();
         mRectLeft = new RectF(pLeft + strokeWidth / 2.0f, 0 + strokeWidth / 2.0f, mCircleSize
