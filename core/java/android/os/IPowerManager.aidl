@@ -58,6 +58,4 @@ interface IPowerManager
     String getSeenWakeLocks();
 
     void cpuBoost(int duration);
-
-    void setKeyboardVisibility(boolean visible);
 }
