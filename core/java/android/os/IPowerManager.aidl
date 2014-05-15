@@ -56,4 +56,6 @@ interface IPowerManager
 
     // blocked wakelock support
     String getSeenWakeLocks();
+
+    void cpuBoost(int duration);
 }
