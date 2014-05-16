@@ -167,7 +167,7 @@ public class BatteryCircleMeterView extends ImageView {
         // could not find the darker definition anywhere in resources
         // do not want to use static 0x404040 color value. would break theming.
         Resources res = getResources();
-        mPaintGray.setColor(res.getColor(R.color.darker_gray));
+        mPaintGray.setColor(res.getColor(R.color.highlighted_text_holo_dark));
         mPaintRed.setColor(res.getColor(R.color.holo_red_light));
 
         mPaintFont.setTextAlign(Align.CENTER);
