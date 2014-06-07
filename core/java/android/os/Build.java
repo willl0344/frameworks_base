@@ -114,7 +114,6 @@ public class Build {
         /**
          * The current version string that defines the slim version
          * the device is on
-         * @hide
          */
         public static final String SLIM = getString("ro.slim.version");
 
