@@ -458,17 +458,11 @@ public class AppOpsManager {
     /**
      * Privacy Guard states
      */
-    /** @hide */
     public static final int PRIVACY_GUARD_DISABLED      = 0;
-    /** @hide */
     public static final int PRIVACY_GUARD_DISABLED_PLUS = 1;
-    /** @hide */
     public static final int PRIVACY_GUARD_ENABLED       = 2;
-    /** @hide */
     public static final int PRIVACY_GUARD_ENABLED_PLUS  = 3;
-    /** @hide */
     public static final int PRIVACY_GUARD_CUSTOM        = 4;
-    /** @hide */
     public static final int PRIVACY_GUARD_CUSTOM_PLUS   = 5;
 
     /**
@@ -635,7 +629,6 @@ public class AppOpsManager {
     /**
      * Retrieve the permission associated privacy guard operation,
      * or OP_NONE if there is not one.
-     * @hide
      */
     public static int getPrivacyGuardOp(String permission) {
         for (int i=0; i<sOpPerms.length; i++) {
@@ -1215,7 +1208,6 @@ public class AppOpsManager {
         finishOp(op, Process.myUid(), mContext.getOpPackageName());
     }
 
-    /** @hide */
     public List<Integer> getPrivacyGuardOpsForPackage(String packageName) {
         try {
             return mService.getPrivacyGuardOpsForPackage(packageName);
@@ -1224,7 +1216,6 @@ public class AppOpsManager {
         return null;
     }
 
-    /** @hide */
     public int getPrivacyGuardSettingForPackage(int uid, String packageName) {
         try {
             return mService.getPrivacyGuardSettingForPackage(uid, packageName);
@@ -1233,7 +1224,6 @@ public class AppOpsManager {
         return PRIVACY_GUARD_DISABLED;
     }
 
-    /** @hide */
     public void setPrivacyGuardSettingForPackage(int uid, String packageName,
             boolean state, boolean forceAll) {
         try {
@@ -1244,7 +1234,6 @@ public class AppOpsManager {
 
     /**
      * Retrieve the privacy guard state associated icons for notification and settings
-     * @hide
      */
     public static int getPrivacyGuardIconResId(int pgState) {
         switch (pgState) {
