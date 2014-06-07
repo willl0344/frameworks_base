@@ -6189,6 +6189,12 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
+         * Whether newly installed apps should run with privacy guard by default
+         * @hide
+         */
+         public static final String PRIVACY_GUARD_DEFAULT = "privacy_guard_default";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -6239,6 +6245,7 @@ public final class Settings {
             UI_NIGHT_MODE,
             UI_THEME_MODE,
             UI_THEME_AUTO_MODE,
+            PRIVACY_GUARD_DEFAULT,
             ADVANCED_REBOOT
         };
 
