@@ -188,7 +188,9 @@ public class AppOpsManager {
     /** @hide */
     public static final int OP_ALARM_WAKEUP = 43;
     /** @hide */
-    public static final int _NUM_OP = 44;
+    public static final int OP_BOOT_COMPLETED = 44;
+    /** @hide */
+    public static final int _NUM_OP = 45;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION =
@@ -256,6 +258,7 @@ public class AppOpsManager {
             OP_COARSE_LOCATION,
             OP_COARSE_LOCATION,
             OP_ALARM_WAKEUP,
+            OP_BOOT_COMPLETED,
     };
 
     /**
@@ -306,6 +309,7 @@ public class AppOpsManager {
             null,
             OPSTR_MONITOR_LOCATION,
             OPSTR_MONITOR_HIGH_POWER_LOCATION,
+            null,
             null,
     };
 
@@ -358,6 +362,7 @@ public class AppOpsManager {
             "MONITOR_LOCATION",
             "MONITOR_HIGH_POWER_LOCATION",
             "ALARM_WAKEUP",
+            "BOOT_COMPLETED",
     };
 
     /**
@@ -409,6 +414,7 @@ public class AppOpsManager {
             null, // no permission for generic location monitoring
             null, // no permission for high power location monitoring
             null, // OP_ALARM_WAKEUP
+            android.Manifest.permission.RECEIVE_BOOT_COMPLETED,
     };
 
     /**
@@ -525,6 +531,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED,
             AppOpsManager.MODE_ALLOWED,
             AppOpsManager.MODE_ALLOWED,
+            AppOpsManager.MODE_ALLOWED, // OP_BOOT_COMPLETED
     };
 
     /**
@@ -551,6 +558,7 @@ public class AppOpsManager {
             false,
             false,
             true,      // OP_WRITE_SMS
+            false,
             false,
             false,
             false,
