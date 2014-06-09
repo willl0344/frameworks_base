@@ -1311,6 +1311,7 @@ public class AppOpsManager {
         return com.android.internal.R.drawable.stat_notify_privacy_guard_off;
     }
 
+    /** @hide */
     public void resetCounters() {
         try {
             mService.resetCounters();
