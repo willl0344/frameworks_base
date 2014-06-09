@@ -1172,7 +1172,7 @@ public class AppOpsService extends IAppOpsService.Stub {
             for (AppOpsManager.OpEntry op : packageOps.get(0).getOps()) {
                 pgDetect = false;
                 if (checkOperation(op.getOp(), uid, packageName)
-                    == AppOpsManager.MODE_ASK) {
+                    == AppOpsManager.MODE_IGNORED) {
                     for (int pgOp : privacyGuardOps) {
                         if (AppOpsManager.opToSwitch(op.getOp()) == pgOp) {
                             privacyGuardOpsHelper.remove((Integer) pgOp);
