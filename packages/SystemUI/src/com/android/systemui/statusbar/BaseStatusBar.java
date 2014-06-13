@@ -428,22 +428,6 @@ public abstract class BaseStatusBar extends SystemUI implements
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_USER_SWITCHED);
         mContext.registerReceiver(mBroadcastReceiver, filter);
-    }
-
-
-    private void initPieController() {
-        if (mEdgeGestureManager == null) {
-            mEdgeGestureManager = EdgeGestureManager.getInstance();
-        }
-        if (mNavigationBarOverlay == null) {
-            mNavigationBarOverlay = new NavigationBarOverlay();
-        }
-        if (mPieController == null) {
-            mPieController = new PieController(
-                    mContext, this, mEdgeGestureManager, mNavigationBarOverlay);
-            addNavigationBarCallback(mPieController);
-        }
-    }
 
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.HOVER_STATE),
@@ -466,10 +450,25 @@ public abstract class BaseStatusBar extends SystemUI implements
                 if(showing) mHover.dismissHover(false, false);
             }
         });
+    }
 
     public Hover getHoverInstance() {
         if(mHover == null) mHover = new Hover(this, mContext);
         return mHover;
+    }
+
+    private void initPieController() {
+        if (mEdgeGestureManager == null) {
+            mEdgeGestureManager = EdgeGestureManager.getInstance();
+        }
+        if (mNavigationBarOverlay == null) {
+            mNavigationBarOverlay = new NavigationBarOverlay();
+        }
+        if (mPieController == null) {
+            mPieController = new PieController(
+                    mContext, this, mEdgeGestureManager, mNavigationBarOverlay);
+            addNavigationBarCallback(mPieController);
+        }
     }
 
     public Peek getPeekInstance() {
