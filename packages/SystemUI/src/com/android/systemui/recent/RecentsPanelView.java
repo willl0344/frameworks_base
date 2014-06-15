@@ -28,12 +28,14 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.IPackageDataObserver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Rect;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -109,6 +111,7 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
     private INotificationManager mNotificationManager;
 
     private LinearColorBar mRamUsageBar;
+    private ImageView mClearRecents;
 
     private long mFreeMemory;
     private long mTotalMemory;
@@ -129,6 +132,7 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
         public View findViewForTask(int persistentTaskId);
         public void drawFadedEdges(Canvas c, int left, int right, int top, int bottom);
         public void setOnScrollListener(Runnable listener);
+        public void removeAllViewsInLayout();
     }
 
     private final class OnLongClickDelegate implements View.OnLongClickListener {
