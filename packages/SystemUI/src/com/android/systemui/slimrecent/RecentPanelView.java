@@ -322,11 +322,16 @@ public class RecentPanelView {
                 if (item.getItemId() == MENU_APP_DETAILS_ID) {
                     startApplicationDetailsActivity(td.packageName, null, null);
                 } else if (item.getItemId() == MENU_APP_FLOATING_ID) {
-                    Intent intent = td.intent;
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                            | Intent.FLAG_FLOATING_WINDOW);
-                    mContext.startActivity(intent);
                     exit();
+                    selectedView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = td.intent;
+                            intent.setFlags(Intent.FLAG_FLOATING_WINDOW
+                                    | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            mContext.startActivity(intent);
+                        }
+                    });
                 } else if (item.getItemId() == MENU_APP_PLAYSTORE_ID) {
                     startApplicationDetailsActivity(null,
                             PLAYSTORE_APP_URI_QUERY + td.packageName, PLAYSTORE_REFERENCE);
