@@ -2999,6 +2999,13 @@ public final class Settings {
         public static final String STATUS_BAR_IME_SWITCHER = "status_bar_ime_switcher";
 
         /**
+         * Heads Up in Floating Window
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_FLOATING_WINDOW = "heads_up_floating_window";
+
+        /**
          * Automatic keyboard rotation timeout.  0 to disable completely.
          * @hide
          */
