@@ -452,9 +452,25 @@ public abstract class BaseStatusBar extends SystemUI implements
         });
     }
 
+    public NotificationHelper getNotificationHelperInstance() {
+        if (mNotificationHelper == null) mNotificationHelper = new NotificationHelper(this, mContext);
+        return mNotificationHelper;
+    }
+
     public Hover getHoverInstance() {
-        if(mHover == null) mHover = new Hover(this, mContext);
+        if (mHover == null) mHover = new Hover(this, mContext);
         return mHover;
+    }
+
+    public Peek getPeekInstance() {
+        if (mPeek == null) mPeek = new Peek(this, mContext);
+        return mPeek;
+    }
+
+    public PowerManager getPowerManagerInstance() {
+        if (mPowerManager == null) mPowerManager
+                = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        return mPowerManager;
     }
 
     private void initPieController() {
@@ -470,18 +486,6 @@ public abstract class BaseStatusBar extends SystemUI implements
             addNavigationBarCallback(mPieController);
         }
     }
-
-    public Peek getPeekInstance() {
-        if(mPeek == null) mPeek = new Peek(this, mContext);
-        return mPeek;
-    }
-
-    public PowerManager getPowerManagerInstance() {
-        if(mPowerManager == null) mPowerManager
-                = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        return mPowerManager;
-    }
-
 
     protected void attachPieContainer(boolean enabled) {
         initPieController();
