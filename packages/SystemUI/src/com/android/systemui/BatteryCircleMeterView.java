@@ -252,8 +252,6 @@ public class BatteryCircleMeterView extends ImageView {
         if (level < 100 && mPercentage) {
             if (level <= 14) {
                 mPaintFont.setColor(mPaintRed.getColor());
-            } else if (mIsCharging && (level > 89)) {
-                mPaintFont.setColor(Color.GREEN);
             } else {
                 mPaintFont.setColor(mCircleTextColor);
             }
