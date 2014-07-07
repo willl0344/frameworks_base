@@ -1524,7 +1524,7 @@
     <!-- Allows an application to read or write the system settings. -->
     <permission android:name="android.permission.WRITE_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="normal"
+        android:protectionLevel="dangerous"
         android:label="@string/permlab_writeSettings"
         android:description="@string/permdesc_writeSettings" />
 
@@ -2086,6 +2086,14 @@
         android:label="@string/permlab_movePackage"
         android:description="@string/permdesc_movePackage"
         android:protectionLevel="signature|system" />
+
+    <!-- @hide Allows an application to change heads up state only with correct signature.
+         Maybe overkill...but we do not want to allow whatever third party app
+         without permission to confuse the user. -->
+    <permission android:name="android.permission.CHANGE_HEADS_UP_STATE"
+        android:label="@string/permlab_changeHeadsUpState"
+        android:description="@string/permdesc_changeHeadsUpState"
+        android:protectionLevel="signature" />
 
     <!-- Allows an application to change whether an application component (other than its own) is
          enabled or not.
