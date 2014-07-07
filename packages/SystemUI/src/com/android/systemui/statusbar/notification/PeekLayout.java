@@ -89,7 +89,7 @@ public class PeekLayout extends LinearLayout implements SwipeHelper.Callback {
     }
 
     @Override
-    public void onChildDismissed(View v, boolean direction) {
+    public void onChildDismissed(View v) {
         StatusBarNotification n = (StatusBarNotification)
                 mPeek.getNotificationView().getTag();
         final String pkg = n.getPackageName();
