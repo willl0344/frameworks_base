@@ -408,9 +408,7 @@ public class Hover {
     }
 
     public void showCurrentNotification() {
-
         final HoverNotification currentNotification = getHoverNotification(INDEX_CURRENT);
-
         if (currentNotification != null && !isKeyguardSecureShowing() && !isStatusBarExpanded()
                 && mHoverActive && !mShowing && isScreenOn() && !isSimPanelShowing()
                 && !mNotificationHelper.isPeekShowing() && !mNotificationHelper.isPeekAppShowing()) {
@@ -646,10 +644,8 @@ public class Hover {
 
     // notifications processing
     public void setNotification(Entry entry, boolean update) {
-        // first, check if current notification's package
-        // is blacklisted and/or comes from foreground app
+        // first, check if current notification's package is blacklisted or excluded in another way
         boolean allowed = true; // default on
-        boolean foreground = false; // default off
 
         //Exclude blacklisted
         try {
@@ -683,11 +679,10 @@ public class Hover {
         //Exclude topmost app
         if (excludeTopmost() && entry.notification.getPackageName().equals(
                 mNotificationHelper.getForegroundPackageName())) {
-            clearForegroundAppNotifications();
-            foreground = true;
+            allowed = false;
         }
 
-        if (!allowed | foreground) {
+        if (!allowed) {
             addStatusBarNotification(entry.notification);
             return;
         }
@@ -875,15 +870,6 @@ public class Hover {
 
     public void clearNotificationList() {
         reparentAllNotifications();
-    }
-
-    public void clearForegroundAppNotifications() {
-        for (int i = 0; i < mNotificationList.size(); i++) {
-            if (mNotificationList.get(i).getContent().getPackageName()
-                    .equals(mNotificationHelper.getForegroundPackageName())) {
-                mNotificationList.remove(i);
-            }
-        }
     }
 
     public void reparentAllNotifications() {
