@@ -4220,14 +4220,6 @@ public final class Settings {
         public static final String HOVER_STATE = "hover_state";
 
         /**
-         * In call dialpad state.
-         * 0 = hidden
-         * 1 = showing
-         * @hide
-         */
-        public static final String DIALPAD_STATE = "dialpad_state";
-
-        /**
          * Recent panel: Show topmost task
          *
          * @hide
