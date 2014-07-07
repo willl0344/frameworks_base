@@ -105,7 +105,7 @@ public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback
         switch (action) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_OUTSIDE:
-                if (!mTouchOutside && !mHover.isAnimatingVisibility()) {
+                if (!mTouchOutside) {
                     mHover.clearHandlerCallbacks();
                     if (mExpanded) {
                         // 5 seconds if is expanded, user has time to pause gaming
