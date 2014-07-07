@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
- * This code has been modified. Portions copyright (C) 2014, ParanoidAndroid Project.
+ * This code has been modified. Portions copyright (C) 2013, ParanoidAndroid Project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -4212,14 +4212,6 @@ public final class Settings {
         public static final String PEEK_WAKE_TIMEOUT = "peek_wake_timeout";
 
         /**
-         * Hover, default is 0 (off).
-         * 0 = disabled
-         * 1 = enabled
-         * @hide
-         */
-        public static final String HOVER_STATE = "hover_state";
-
-        /**
          * Recent panel: Show topmost task
          *
          * @hide
@@ -6374,9 +6366,6 @@ public final class Settings {
 
         /** @hide */
         public static final String IMMERSIVE_MODE_CONFIRMATIONS = "immersive_mode_confirmations";
-
-        /** @hide */
-        public static final String HOVER_FIRST_TIME = "hover_first_time";
 
         /**
          * This is the query URI for finding a print service to install.
