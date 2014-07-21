@@ -3524,6 +3524,12 @@ public final class Settings {
         public static final String MENU_VISIBILITY = "menu_visibility";
 
         /**
+         * Disable FC Notifications
+         * @hide
+         */
+        public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+
+        /**
          * Battery warning preferences
          *
          * 0 = show dialog + play sound (default)
