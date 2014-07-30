@@ -177,9 +177,6 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     private PackageManager mPm;
 
-    // Notification helper
-    protected NotificationHelper mNotificationHelper;
-
     /**
      * An interface for navigation key bars to allow status bars to signal which keys are
      * currently of interest to the user.<br>
