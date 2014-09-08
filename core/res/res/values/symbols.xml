@@ -1306,6 +1306,7 @@
   <java-symbol type="bool" name="config_enableLockBeforeUnlockScreen" />
   <java-symbol type="bool" name="config_enableLockScreenRotation" />
   <java-symbol type="bool" name="config_enableLockScreenTranslucentDecor" />
+  <java-symbol type="array" name="config_smartCoverWindowCoords" />
   <java-symbol type="bool" name="config_enableTranslucentDecor" />
   <java-symbol type="bool" name="config_lidControlsSleep" />
   <java-symbol type="bool" name="config_reverseDefaultRotation" />
