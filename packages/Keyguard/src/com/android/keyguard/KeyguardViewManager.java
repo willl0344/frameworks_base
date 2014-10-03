@@ -917,12 +917,12 @@ public class KeyguardViewManager {
     public void showCover() {
         if(DEBUG) Log.v(TAG, "showCover()");
 
-        if (Settings.System.getInt(mContext.getContentResolver(),
-                     Settings.System.DISABLE_SMART_COVER, 0) != 0) {
+        if (mSmartCoverCoords == null) {
             return;
         }
 
-        if (mSmartCoverCoords == null) {
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                     Settings.System.DISABLE_SMART_COVER, 0) != 0) {
             return;
         }
 
