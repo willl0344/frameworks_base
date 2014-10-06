@@ -846,7 +846,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         setFocusableInTouchMode(true);
         setWillNotDraw(false);
         setAlwaysDrawnWithCacheEnabled(false);
-        setScrollingCacheEnabled(true);
 
         final ViewConfiguration configuration = ViewConfiguration.get(mContext);
         mTouchSlop = configuration.getScaledTouchSlop();
@@ -1555,7 +1554,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         if (mScrollingCacheEnabled && !enabled) {
             clearScrollingCache();
         }
-        mScrollingCacheEnabled = enabled;
     }
 
     /**
@@ -3308,7 +3306,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         final int distance = Math.abs(deltaY);
         final boolean overscroll = mScrollY != 0;
         if (overscroll || distance > mTouchSlop) {
-            createScrollingCache();
             if (overscroll) {
                 mTouchMode = TOUCH_MODE_OVERSCROLL;
                 mMotionCorrection = 0;
@@ -3657,7 +3654,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             if (!mDataChanged) {
                 if (mTouchMode == TOUCH_MODE_FLING) {
                     // Stopped a fling. It is a scroll.
-                    createScrollingCache();
                     mTouchMode = TOUCH_MODE_SCROLL;
                     mMotionCorrection = 0;
                     motionPosition = findMotionRow(y);
@@ -3928,7 +3924,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             if (motionView != null) {
                 motionView.setPressed(false);
             }
-            clearScrollingCache();
             removeCallbacks(mPendingCheckForLongPress);
             recycleVelocityTracker();
         }
@@ -4102,7 +4097,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
                 mMotionY = y;
                 mMotionPosition = motionPosition;
                 mTouchMode = TOUCH_MODE_DOWN;
-                clearScrollingCache();
             }
             mLastY = Integer.MIN_VALUE;
             initOrResetVelocityTracker();
@@ -4347,7 +4341,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             removeCallbacks(mCheckFlywheel);
 
             reportScrollStateChange(OnScrollListener.SCROLL_STATE_IDLE);
-            clearScrollingCache();
             mScroller.abortAnimation();
 
             if (mFlingStrictSpan != null) {
@@ -5088,34 +5081,9 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     }
 
     private void createScrollingCache() {
-        if (mScrollingCacheEnabled && !mCachingStarted && !isHardwareAccelerated()) {
-            setChildrenDrawnWithCacheEnabled(true);
-            setChildrenDrawingCacheEnabled(true);
-            mCachingStarted = mCachingActive = true;
-        }
     }
 
     private void clearScrollingCache() {
-        if (!isHardwareAccelerated()) {
-            if (mClearScrollingCache == null) {
-                mClearScrollingCache = new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mCachingStarted) {
-                            mCachingStarted = mCachingActive = false;
-                            setChildrenDrawnWithCacheEnabled(false);
-                            if ((mPersistentDrawingCache & PERSISTENT_SCROLLING_CACHE) == 0) {
-                                setChildrenDrawingCacheEnabled(false);
-                            }
-                            if (!isAlwaysDrawnWithCacheEnabled()) {
-                                invalidate();
-                            }
-                        }
-                    }
-                };
-            }
-            post(mClearScrollingCache);
-        }
     }
 
     /**
@@ -5535,7 +5503,6 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             mPositionScroller.stop();
         }
         mTouchMode = TOUCH_MODE_REST;
-        clearScrollingCache();
         mSpecificTop = selectedTop;
         selectedPos = lookForSelectablePosition(selectedPos, down);
         if (selectedPos >= firstPosition && selectedPos <= getLastVisiblePosition()) {
