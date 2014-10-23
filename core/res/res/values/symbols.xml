@@ -1306,7 +1306,6 @@
   <java-symbol type="bool" name="config_enableLockBeforeUnlockScreen" />
   <java-symbol type="bool" name="config_enableLockScreenRotation" />
   <java-symbol type="bool" name="config_enableLockScreenTranslucentDecor" />
-  <java-symbol type="array" name="config_smartCoverWindowCoords" />
   <java-symbol type="bool" name="config_enableTranslucentDecor" />
   <java-symbol type="bool" name="config_lidControlsSleep" />
   <java-symbol type="bool" name="config_reverseDefaultRotation" />
@@ -1766,9 +1765,4 @@
   <java-symbol type="dimen" name="subtitle_shadow_offset" />
   <java-symbol type="dimen" name="subtitle_outline_width" />
 
-  <!-- Proximity check on screen on -->
-  <java-symbol type="bool" name="config_proximityCheckOnWake" />
-
-  <!-- Proximity check timeout -->
-  <java-symbol type="integer" name="config_proximityCheckTimeout" />
 </resources>
